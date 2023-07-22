@@ -7,6 +7,9 @@
 <body>
   <h1>MPR Report</h1>
 
+  <button id="resetAllButton" onclick="resetAllCounters()">Reset All</button>
+
+  <div class="counters">
   <div class="counters">
     <!-- First Counter -->
     <div class="counter">
@@ -236,6 +239,11 @@
       <button onclick="increment(32)">+</button>
       <button onclick="reset(32)">Reset</button>
     </div>
+  </div>
+
+  <!-- Add this button below your counters div -->
+<button onclick="submit()">Submit</button>
+
     
 
     <!-- Add more counters as needed -->
