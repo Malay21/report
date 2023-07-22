@@ -15,7 +15,6 @@ function increment(counterIndex) {
   updateCount(counterIndex);
   saveCounterData();
   sendDataToGoogleSheets(counterIndex, counters[counterIndex - 1]);
-  updateTable(); // Update the table to reflect the changes
 }
 
 function decrement(counterIndex) {
@@ -24,7 +23,6 @@ function decrement(counterIndex) {
     updateCount(counterIndex);
     saveCounterData();
     sendDataToGoogleSheets(counterIndex, counters[counterIndex - 1]);
-    updateTable(); // Update the table to reflect the changes
   }
 }
 
@@ -33,7 +31,6 @@ function reset(counterIndex) {
   updateCount(counterIndex);
   saveCounterData();
   sendDataToGoogleSheets(counterIndex, 0);
-  updateTable(); // Update the table to reflect the changes
 }
 
 function updateCount(counterIndex) {
@@ -63,20 +60,4 @@ function sendDataToGoogleSheets(counterIndex, countValue) {
     body: JSON.stringify(params)
   })
   .catch(error => console.error('Error sending data to Google Sheets:', error));
-}
-
-function updateTable() {
-  const tableBody = document.getElementById('counterTable').getElementsByTagName('tbody')[0];
-  tableBody.innerHTML = ''; // Clear existing table rows
-  
-  for (let i = 0; i < counters.length; i++) {
-    const counterName = document.getElementById(`counter${i + 1}`).value || `Counter ${i + 1}`;
-    const countValue = counters[i];
-
-    const newRow = tableBody.insertRow();
-    newRow.innerHTML = `
-      <td>${counterName}</td>
-      <td>${countValue}</td>
-    `;
-  }
 }
