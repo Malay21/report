@@ -1,9 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-  }
-  
+  position: relative;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
   h1 {
     margin-bottom: 20px;
   }
@@ -45,5 +46,12 @@ body {
     font-size: 18px;
     padding: 5px 10px;
     margin: 5px;
+  }
+  
+  #resetAllButton {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 2;
   }
   
