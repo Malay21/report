@@ -60,7 +60,6 @@ function resetAllCounters() {
 }
 
 
-// Your existing code...
 
 function sendDataToGoogleScript(counterIndex, countValue) {
   const data = {
@@ -68,7 +67,8 @@ function sendDataToGoogleScript(counterIndex, countValue) {
     countValue: countValue
   };
 
-  const url = 'https://script.google.com/macros/s/AKfycbxaQj9aA-9bISMZ3DCXFValohUlMLzHmEkrj6gPtrJKikTu-5ZdA9rAMAPXws-Gv970/exec';
+  const apiKey = 'AIzaSyBpVhEbX91kpAtAQlFYdMWb1EStM8rSw6s'; // Replace with your actual API key
+  const url = `https://script.google.com/macros/s/AKfycbxaQj9aA-9bISMZ3DCXFValohUlMLzHmEkrj6gPtrJKikTu-5ZdA9rAMAPXws-Gv970/exec?key=${apiKey}`;
   fetch(url, {
     method: 'POST',
     headers: {
@@ -78,6 +78,7 @@ function sendDataToGoogleScript(counterIndex, countValue) {
   })
   .catch(error => console.error('Error sending data to Google Sheets:', error));
 }
+
 
 
 
