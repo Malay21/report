@@ -14,16 +14,66 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
-  .counter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+
+/* Add this CSS to styles.css */
+.counter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter:hover {
+  transform: translateZ(20px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 16px rgba(134, 42, 255, 0.582); /* Added glow effect to the box-shadow on hover */
+}
+
+
+/* New style for glare or shadow effect */
+.counter::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.counter:hover::before {
+  opacity: 1;
+}
+
+/* New style for the glow effect */
+.counter::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 8px;
+  border: 2px solid rgb(133, 133, 133); /* Orange glow color */
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.counter:hover::after {
+  opacity: 1;
+}
+
   
   input {
     margin-bottom: 10px;
