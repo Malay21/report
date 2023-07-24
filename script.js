@@ -43,13 +43,6 @@ function saveCounterData() {
     localStorage.setItem(`counter_${i + 1}`, counters[i]);
   }
 }
-
-function sendDataToGoogleScript(counterIndex, countValue) {
-  const data = {
-    counterIndex: counterIndex,
-    countValue: countValue
-  };
-}
 function resetAllCounters() {
   for (let i = 0; i < counters.length; i++) {
     counters[i] = 0;
