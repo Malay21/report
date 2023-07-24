@@ -62,26 +62,23 @@ function resetAllCounters() {
 
 // Your existing code...
 
-// Function to send data to Google Sheets
-function sendDataToGoogleSheets() {
-  for (let i = 0; i < counters.length; i++) {
-    const range = `Sheet1!A${i + 1}`;
-    const params = {
-      values: [[counters[i]]]
-    };
-    
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?valueInputOption=RAW`;
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        'Authorization': 'Bearer YOUR_GOOGLE_SHEETS_API_KEY', // Replace with your Google Sheets API key
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(params)
-    })
-    .catch(error => console.error('Error sending data to Google Sheets:', error));
-  }
+function sendDataToGoogleScript(counterIndex, countValue) {
+  const data = {
+    counterIndex: counterIndex,
+    countValue: countValue
+  };
+
+  const url = 'https://script.google.com/macros/s/AKfycbxaQj9aA-9bISMZ3DCXFValohUlMLzHmEkrj6gPtrJKikTu-5ZdA9rAMAPXws-Gv970/exec';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .catch(error => console.error('Error sending data to Google Sheets:', error));
 }
+
 
 
 // Function to handle the submit button click
